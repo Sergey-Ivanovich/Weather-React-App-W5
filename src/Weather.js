@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
+import FormattedDate from "./FormattedDate";
 
 export default function App(props) {
   const [weatherData, setWeatherData] = useState({ ready: false });
@@ -8,7 +9,10 @@ export default function App(props) {
   let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}`;
 
   function handleResponse(response) {
+    console.log(response);
+
     setWeatherData({
+      date: new Date(response.data.time * 1000),
       ready: true,
       temperature: response.data.temperature.current,
       humidity: response.data.temperature.humidity,
@@ -43,7 +47,9 @@ export default function App(props) {
           <div className="main-body p-5">
             <h1 className="city">{weatherData.cityName}</h1>
             <ul className="p-0 mb-5">
-              <li>Sunday 18:00</li>
+              <li>
+                <FormattedDate date={weatherData.date} />
+              </li>
               <li>{weatherData.description}</li>
             </ul>
 
