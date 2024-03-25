@@ -40,3 +40,8 @@ footer {
   margin-left: 5px;
   vertical-align: top;
 }
+
+.buffering {
+  text-align: center;
+  margin: 230px;
+}

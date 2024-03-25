@@ -71,6 +71,6 @@ export default function App(props) {
     );
   } else {
     axios.get(apiUrl).then(handleResponse);
-    return <h1>Loading...</h1>;
+    return <h1 className="buffering">Loading...</h1>;
   }
 }
