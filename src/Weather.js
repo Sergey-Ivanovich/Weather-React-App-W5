@@ -1,16 +1,14 @@
 import React, { useState } from "react";
 import axios from "axios";
-import FormattedDate from "./FormattedDate";
+
+import WeatherInfo from "./WeatherInfo";
 
 export default function App(props) {
+  const [city, setCity] = useState(props.defaultCity);
   const [weatherData, setWeatherData] = useState({ ready: false });
   const apiKey = `oe3107c03bbf1b061844a8c3d518t9b3`;
-  let city = props.city;
-  let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}`;
 
   function handleResponse(response) {
-    console.log(response);
-
     setWeatherData({
       date: new Date(response.data.time * 1000),
       ready: true,
@@ -24,15 +22,30 @@ export default function App(props) {
     });
   }
 
+  function search() {
+    let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}`;
+    axios.get(apiUrl).then(handleResponse);
+  }
+
+  function handleSubmit(event) {
+    event.preventDefault();
+    search();
+  }
+
+  function handleChange(event) {
+    setCity(event.target.value);
+  }
+
   if (weatherData.ready === true) {
     return (
       <div className="App">
         <main className="border border-gray p-1 rounded ">
-          <form>
+          <form onSubmit={handleSubmit}>
             <div className="row ">
               <div className="col-9 ">
                 {" "}
                 <input
+                  onChange={handleChange}
                   type="search"
                   placeholder="e.g. Brasov"
                   className=" w-100 btn text-start city-box"
@@ -44,39 +57,12 @@ export default function App(props) {
               </div>
             </div>
           </form>
-          <div className="main-body p-5">
-            <h1 className="city">{weatherData.cityName}</h1>
-            <ul className="p-0 mb-5">
-              <li>
-                <FormattedDate date={weatherData.date} />
-              </li>
-              <li>{weatherData.description}</li>
-            </ul>
-
-            <div className="row">
-              <div className="col-8 ">
-                <img src={weatherData.icon} alt="weather icon"></img>
-                <h2 className="d-inline">
-                  <span className="temperature">
-                    {Math.round(weatherData.temperature)}
-                  </span>
-                  <span className="unit">°C</span>
-                </h2>
-              </div>
-              <div className="col-4 ">
-                <ul>
-                  <li>Pressure: {weatherData.pressure} hPa</li>
-                  <li>Humidity: {weatherData.humidity}%</li>
-                  <li>Wind: {Math.round(weatherData.wind)} Mph</li>
-                </ul>
-              </div>
-            </div>
-          </div>
+          <WeatherInfo data={weatherData} />
         </main>
       </div>
     );
   } else {
-    axios.get(apiUrl).then(handleResponse);
+    search();
     return <h1 className="buffering">Loading...</h1>;
   }
 }
