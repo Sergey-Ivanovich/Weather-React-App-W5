@@ -1,1 +1,42 @@
+main {
+  max-width: 800px;
+  display: block;
+  margin: 60px auto;
+  color: #5e5e5e;
+}
 
+form {
+  margin: 20px 50px -10px 50px;
+}
+
+.center {
+  vertical-align: middle;
+}
+
+ul {
+  list-style: none;
+}
+
+main h2 {
+  vertical-align: middle;
+}
+
+footer {
+  text-align: center;
+}
+
+.city-box {
+  border: 1px solid lightgray !important;
+}
+
+.temperature {
+  color: black;
+  font-size: 40px;
+  margin-left: 10px;
+}
+
+.unit {
+  font-size: 20px;
+  margin-left: 5px;
+  vertical-align: top;
+}
