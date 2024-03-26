@@ -45,3 +45,12 @@ footer {
   text-align: center;
   margin: 230px;
 }
+
+.WeatherIcon img {
+  width: 100%;
+  margin: -20px 0px 0px 0px;
+}
+
+.WeatherInfo .master-temp {
+  display: flex;
+}

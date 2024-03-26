@@ -14,7 +14,7 @@ export default function App(props) {
       ready: true,
       temperature: response.data.temperature.current,
       humidity: response.data.temperature.humidity,
-      icon: `https://ssl.gstatic.com/onebox/weather/64/partly_cloudy.png`,
+      icon: response.data.condition.icon,
       cityName: response.data.city,
       description: response.data.condition.description,
       wind: response.data.wind.speed,
