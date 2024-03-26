@@ -12,7 +12,6 @@ export default function WeatherInfo(props) {
         </li>
         <li>{props.data.description}</li>
       </ul>
-
       <div className="row">
         <div className="col-8 master-temp">
           <WeatherIcon iconInfo={props.data.icon} />
@@ -27,7 +26,7 @@ export default function WeatherInfo(props) {
           <ul>
             <li>Pressure: {props.data.pressure} hPa</li>
             <li>Humidity: {props.data.humidity}%</li>
-            <li>Wind: {Math.round(props.data.wind)} Mph</li>
+            <li>Wind: {Math.round(props.data.wind)} M/s</li>
           </ul>
         </div>
       </div>
