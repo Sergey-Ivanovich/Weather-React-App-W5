@@ -6,6 +6,7 @@ import WeatherUnit from "./WeatherUnit";
 export default function WeatherInfo(props) {
   return (
     <div className="WeatherInfo main-body p-5">
+      <p className="country">{props.data.country}</p>
       <h1 className="city">{props.data.cityName}</h1>
       <ul className="p-0 mb-5">
         <li>

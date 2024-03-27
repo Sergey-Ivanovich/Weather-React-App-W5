@@ -10,6 +10,7 @@ export default function App(props) {
 
   function handleResponse(response) {
     setWeatherData({
+      country: response.data.country,
       date: new Date(response.data.time * 1000),
       ready: true,
       temperature: response.data.temperature.current,

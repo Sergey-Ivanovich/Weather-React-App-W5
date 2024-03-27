@@ -54,3 +54,7 @@ footer {
 .WeatherInfo .master-temp {
   display: flex;
 }
+
+.WeatherInfo .country {
+  margin-bottom: 0px;
+}
