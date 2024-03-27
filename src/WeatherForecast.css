@@ -1,0 +1,27 @@
+.WeatherForecast {
+  margin: 20px;
+  transition: all 150ms ease-in-out;
+  padding: 10px;
+}
+
+.WeatherForecast:hover {
+  border-radius: 10px;
+  background-color: rgba(0, 0, 0, 0.07);
+}
+
+.WeatherForecast h2 {
+  font-size: 20px;
+}
+
+.WeatherForecast h3 {
+  font-size: 15px;
+  font-weight: normal;
+}
+
+.WeatherForecast canvas {
+  margin: 8px;
+}
+
+.min-temp {
+  opacity: 0.5;
+}

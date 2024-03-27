@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
+import WeatherForecast from "./WeatherForecast";
 
 import WeatherInfo from "./WeatherInfo";
 
@@ -36,10 +37,14 @@ export default function App(props) {
   function handleChange(event) {
     setCity(event.target.value);
   }
-  test;
+
   if (weatherData.ready === true) {
     return (
       <div className="App">
+        <div className="mobile-warning">
+          WARNING : This app is not currently RESPONSIVE! and may appear
+          incorrectly on devices with a smaller screen such as a phone.
+        </div>
         <main className="border border-gray p-1 rounded ">
           <form onSubmit={handleSubmit}>
             <div className="row ">
@@ -59,11 +64,36 @@ export default function App(props) {
             </div>
           </form>
           <WeatherInfo data={weatherData} />
+          <div className="row">
+            <div className="col">
+              <WeatherForecast />
+            </div>
+            <div className="col">
+              <WeatherForecast />
+            </div>
+            <div className="col">
+              <WeatherForecast />
+            </div>
+            <div className="col">
+              <WeatherForecast />
+            </div>
+            <div className="col">
+              <WeatherForecast />
+            </div>
+          </div>
         </main>
       </div>
     );
   } else {
     search();
-    return <h1 className="buffering">Loading...</h1>;
+    return (
+      <div>
+        <div className="mobile-warning">
+          WARNING : This app is not currently RESPONSIVE! and may appear
+          incorrectly on devices with a smaller screen such as a phone.
+        </div>
+        <h1 className="buffering">Loading...</h1>
+      </div>
+    );
   }
 }
