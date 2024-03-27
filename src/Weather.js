@@ -36,7 +36,7 @@ export default function App(props) {
   function handleChange(event) {
     setCity(event.target.value);
   }
-
+  test;
   if (weatherData.ready === true) {
     return (
       <div className="App">
