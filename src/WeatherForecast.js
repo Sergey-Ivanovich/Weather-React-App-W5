@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 import "./WeatherForecast.css";
 import axios from "axios";
@@ -12,6 +12,10 @@ export default function WeatherForecast(props) {
   let latitude = props.coordinates.latitude;
   let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${latitude}&lon=${longitude}&appid=${apiKey}&units=metric`;
 
+  useEffect(() => {
+    setReady(false);
+  }, [props.coordinates]);
+
   function Search() {
     axios.get(apiUrl).then(handleResponse);
   }
@@ -24,7 +28,6 @@ export default function WeatherForecast(props) {
   if (ready) {
     return (
       <div>
-        <hr />
         <div className="row">
           {forecastData.map(function (forecastDaily, index) {
             if (index < 6 && index > 0) {
