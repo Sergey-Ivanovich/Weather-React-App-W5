@@ -65,11 +65,8 @@ export default function App(props) {
             </div>
           </form>
           <WeatherInfo data={weatherData} />
-          <div className="row">
-            <div className="col">
-              <WeatherForecast coordinates={weatherData.coordinates} />
-            </div>
-          </div>
+
+          <WeatherForecast coordinates={weatherData.coordinates} />
         </main>
       </div>
     );

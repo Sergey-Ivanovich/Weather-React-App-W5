@@ -12,16 +12,28 @@ export default function WeatherForecast(props) {
   let latitude = props.coordinates.latitude;
   let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${latitude}&lon=${longitude}&appid=${apiKey}&units=metric`;
 
+  function Search() {
+    axios.get(apiUrl).then(handleResponse);
+  }
+
   function handleResponse(response) {
-    console.log(response);
     setForecastData(response.data.daily);
     setReady(true);
   }
 
   if (ready) {
-    return <WeatherForecastElement data={forecastData} dayNumber={0} />;
+    return (
+      <div>
+        <hr />
+        <div className="row">
+          <div className="col">
+            <WeatherForecastElement data={forecastData} dayNumber={1} />
+          </div>
+        </div>
+      </div>
+    );
   } else {
-    axios.get(apiUrl).then(handleResponse);
+    Search();
     return <div className="buffering">Loading...</div>;
   }
 }
