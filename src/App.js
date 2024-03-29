@@ -10,9 +10,20 @@ export default function App() {
       <footer>
         <p>
           This Project Was Coded By{" "}
-          <a href="https://github.com/Sergey-Ivanovich"> Eric Noata</a> And is
-          Open-Sourced on{" "}
-          <a href="https://github.com/Sergey-Ivanovich/Weather-React-App-W5">
+          <a
+            href="https://github.com/Sergey-Ivanovich"
+            target="_blank"
+            rel="noreferrer"
+          >
+            {" "}
+            Eric Noata
+          </a>{" "}
+          And is Open-Sourced on{" "}
+          <a
+            href="https://github.com/Sergey-Ivanovich/Weather-React-App-W5"
+            target="_blank"
+            rel="noreferrer"
+          >
             GitHub
           </a>
         </p>
