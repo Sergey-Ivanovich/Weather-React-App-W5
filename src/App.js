@@ -18,13 +18,21 @@ export default function App() {
             {" "}
             Eric Noata
           </a>{" "}
-          And is Open-Sourced on{" "}
+          Is Open-Sourced on{" "}
           <a
             href="https://github.com/Sergey-Ivanovich/Weather-React-App-W5"
             target="_blank"
             rel="noreferrer"
           >
             GitHub
+          </a>
+          And Hosted on{" "}
+          <a
+            href="https://weather-app-react-w5.netlify.app"
+            target="_blank"
+            rel="noreferrer"
+          >
+            Netlify
           </a>
         </p>
       </footer>
